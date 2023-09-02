@@ -16,7 +16,7 @@ export default function Register({ navigation }) {
   const handleRegisterPress = async () => {
     try {
       await ApiRailway.register(username, password);
-      console.log("Registration Successful");
+      console.log("handleRegisterPress success");
       navigation.navigate("Sign In");
     } catch (error) {
       if (error.response && error.response.status === 409) {

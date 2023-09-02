@@ -21,7 +21,7 @@ const ApiRailway = {
         username,
         password,
       });
-      console.log(response);
+      console.log("api.js - login response", response);
       return response.data;
     } catch (error) {
       throw error;
@@ -33,6 +33,7 @@ const ApiRailway = {
       const response = await axios.get(`${BASE_URL}/messages`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
+      console.log("api.js - getAllMessages response", response);
       return response.data;
     } catch (error) {
       throw error;
@@ -48,6 +49,7 @@ const ApiRailway = {
           headers: { Authorization: `Bearer ${accessToken}` },
         }
       );
+      console.log("api.js - createMessage response", response);
       return response.data;
     } catch (error) {
       throw error;
@@ -60,7 +62,7 @@ const ApiRailway = {
       const response = await axios.delete(`${BASE_URL}/messages/${messageId}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
-      console.log(response.data);
+      console.log("api.js - deleteMessage response", response);
       return response.data;
     } catch (error) {
       throw error;
@@ -72,6 +74,7 @@ const ApiRailway = {
       const response = await axios.get(`${BASE_URL}/users`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
+      console.log("api.js - getSpecificUser response", response);
       return response.data;
     } catch (error) {
       throw error;
@@ -83,6 +86,7 @@ const ApiRailway = {
       const response = await axios.delete(`${BASE_URL}/users`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
+      console.log("api.js - deleteUser response", response);
       return response.data;
     } catch (error) {
       throw error;
