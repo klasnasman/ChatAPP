@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Text,
 } from "react-native";
-import ApiRailway from "../api/api";
+import ApiRailway from "../api/Api";
 
 export default function Register({ navigation }) {
   const [username, setUsername] = useState("");

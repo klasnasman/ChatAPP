@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import { AuthContext } from "../context/AuthProvider";
-import ApiRailway from "../api/api";
+import ApiRailway from "../api/Api";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);

@@ -7,7 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 import { AuthContext } from "../context/AuthProvider";
-import ApiRailway from "../api/api";
+import ApiRailway from "../api/Api";
 
 export default function Login({ navigation }) {
   const { handleLogin } = useContext(AuthContext);
