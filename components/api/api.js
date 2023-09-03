@@ -47,7 +47,6 @@ const ApiRailway = {
           headers: { Authorization: `Bearer ${accessToken}` },
         }
       );
-      console.log("api.js - createMessage response", response);
       return response.data;
     } catch (error) {
       throw error;
