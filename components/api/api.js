@@ -21,7 +21,6 @@ const ApiRailway = {
         username,
         password,
       });
-      console.log("api.js - login response", response);
       return response.data;
     } catch (error) {
       throw error;
@@ -33,7 +32,6 @@ const ApiRailway = {
       const response = await axios.get(`${BASE_URL}/messages`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
-      console.log("api.js - getAllMessages response", response);
       return response.data;
     } catch (error) {
       throw error;
