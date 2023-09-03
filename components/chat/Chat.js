@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import { AuthContext } from "../context/AuthProvider";
 import ApiRailway from "../api/Api";
+import SendMessage from "./SendMessages";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
@@ -21,6 +22,15 @@ export default function Chat() {
     }
   };
 
+  const handleSendMessage = async (messageText) => {
+    try {
+      await ApiRailway.createMessage(accessToken, messageText);
+      fetchMessages(accessToken);
+    } catch (error) {
+      console.error("Error", error);
+    }
+  };
+
   const renderMessageItem = ({ item }) => {
     return (
       <View>
@@ -31,25 +41,30 @@ export default function Chat() {
 
   return (
     <View style={styles.container}>
-      {userId && (
-        <FlatList
-          data={messages}
-          keyExtractor={(item) => item._id}
-          renderItem={renderMessageItem}
+      <View>
+        {userId && (
+          <FlatList
+            data={messages}
+            keyExtractor={(item) => item._id}
+            renderItem={renderMessageItem}
+          />
+        )}
+      </View>
+      <View style={styles.sendMessageContainer}>
+        <SendMessage
+          onSendMessage={handleSendMessage}
+          style={styles.sendMessage}
         />
-      )}
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  keyboardAvoidingContainer: {
-    flex: 1,
-  },
   container: {
     flex: 1,
     paddingTop: 16,
-    paddingBottom: 16,
+    paddingBottom: 86,
   },
   messageText: {
     color: "black",
