@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Button, View, StyleSheet } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
+import { TextInput, View, StyleSheet } from "react-native";
+import { Feather } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native";
 
 export default function SendMessage({ onSendMessage }) {
   const [messageText, setMessageText] = useState("");
@@ -14,24 +15,35 @@ export default function SendMessage({ onSendMessage }) {
   return (
     <View style={styles.container}>
       <TextInput
+        style={styles.input}
         placeholder="Type your message..."
         onChangeText={setMessageText}
         value={messageText}
       />
-      <View>
-        <Button onPress={handleSendMessage} title="Send" />
-      </View>
+      <TouchableOpacity style={styles.sendButton} onPress={handleSendMessage}>
+        <Feather name="send" size={24} color="#1982FC" />
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "grey",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 16,
+    paddingBottom: 16,
+    paddingTop: 8,
   },
   input: {
     flex: 1,
+    marginRight: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    height: 30,
     backgroundColor: "#f1f1f0",
+    borderRadius: 15,
   },
   sendButton: {
     paddingVertical: 10,
