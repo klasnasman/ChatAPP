@@ -9,6 +9,7 @@ import { AuthContext } from "../context/AuthProvider";
 import Login from "../auth/Login";
 import Register from "../auth/Register";
 import Chat from "../chat/Chat";
+import Profile from "../profile/Profile";
 
 const Drawer = createDrawerNavigator();
 
@@ -38,6 +39,9 @@ const DrawerNavigator = () => {
 
   if (accessToken) {
     screens.push(<Drawer.Screen key="Chat" name="Chat" component={Chat} />);
+    screens.push(
+      <Drawer.Screen key="Profile" name="Profile" component={Profile} />
+    );
   } else {
     screens.push(
       <Drawer.Screen key="Login" name="Sign In" component={Login} />,
