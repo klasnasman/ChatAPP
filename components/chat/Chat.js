@@ -12,8 +12,8 @@ import {
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { AuthContext } from "../context/AuthProvider";
-import ApiRailway from "../api/Api";
 import SendMessage from "./SendMessage";
+import ApiRailway from "../api/ApiRailway";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
