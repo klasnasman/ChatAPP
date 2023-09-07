@@ -55,7 +55,6 @@ const ApiRailway = {
 
   deleteMessage: async (accessToken, messageId) => {
     try {
-      console.log("APIRailway messageID:", messageId);
       const response = await axios.delete(`${BASE_URL}/messages/${messageId}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });

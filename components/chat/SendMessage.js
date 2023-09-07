@@ -12,6 +12,7 @@ export default function SendMessage({ onSendMessage }) {
       setMessageText("");
     }
   };
+
   return (
     <View style={styles.container}>
       <TextInput
