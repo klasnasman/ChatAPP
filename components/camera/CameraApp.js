@@ -34,7 +34,6 @@ const CameraApp = () => {
     if (cameraRef.current) {
       try {
         const picture = await cameraRef.current.takePictureAsync();
-        console.log(picture);
         setPicture(picture);
       } catch (error) {
         console.log(error);

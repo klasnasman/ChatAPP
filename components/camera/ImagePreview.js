@@ -7,21 +7,14 @@ import { navigate } from "../navigators/RootNavigation";
 const ImagePreview = ({ pictureUri, resetCamera }) => {
   const handleApprove = async () => {
     try {
-      console.log("Saving picture...");
       const asset = await MediaLibrary.createAssetAsync(pictureUri);
-
       const album = await MediaLibrary.getAlbumAsync("Expo");
 
       if (album == null) {
-        console.log("Creating album...");
         await MediaLibrary.createAlbumAsync("Expo", asset, false);
       } else {
-        console.log("Adding asset to album...");
         await MediaLibrary.addAssetsToAlbumAsync(asset, album.id, false);
       }
-
-      console.log("Picture saved successfully.");
-
       navigate("Profile");
       resetCamera();
     } catch (error) {
